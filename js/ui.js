@@ -16,14 +16,14 @@ export function initTheme() {
 
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
-  const lightText = dom.themeToggle.querySelector('.theme-text-light');
-  const darkText = dom.themeToggle.querySelector('.theme-text-dark');
+  const lightIcon = dom.themeToggle.querySelector('.theme-icon-light');
+  const darkIcon = dom.themeToggle.querySelector('.theme-icon-dark');
   if (theme === 'dark') {
-    lightText.style.display = 'none';
-    darkText.style.display = 'inline';
+    lightIcon.style.display = 'none';
+    darkIcon.style.display = 'block';
   } else {
-    lightText.style.display = 'inline';
-    darkText.style.display = 'none';
+    lightIcon.style.display = 'block';
+    darkIcon.style.display = 'none';
   }
 }
 
