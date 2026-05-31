@@ -1,0 +1,12 @@
+[
+  { "id": "phones", "name": "Phones", "handle": "phones", "description": "Connected essentials" },
+  { "id": "laptops", "name": "Laptops", "handle": "laptops", "description": "Portable performance" },
+  { "id": "gaming", "name": "Gaming", "handle": "gaming", "description": "Play without limits" },
+  { "id": "headphones", "name": "Headphones", "handle": "headphones", "description": "Immersive sound" },
+  { "id": "watches", "name": "Watches", "handle": "watches", "description": "Health and time" },
+  { "id": "tablets", "name": "Tablets", "handle": "tablets", "description": "Creative canvases" },
+  { "id": "accessories", "name": "Accessories", "handle": "accessories", "description": "Desk upgrades" },
+  { "id": "cameras", "name": "Cameras", "handle": "cameras", "description": "Capture detail" },
+  { "id": "smart-devices", "name": "Smart Devices", "handle": "smart-devices", "description": "Connected living" },
+  { "id": "home-tech", "name": "Home Tech", "handle": "home-tech", "description": "Smarter spaces" }
+]

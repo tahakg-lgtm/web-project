@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Medusa Store</title>
+  <meta name="description" content="About the offline Medusa Store catalog.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/icons/icon.png">
+  <script>
+    const savedTheme = localStorage.getItem('medusa_theme_pref');
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme || systemTheme);
+  </script>
+</head>
+<body class="bg-ui-bg-base text-ui-fg-base antialiased detail-body">
+  <div class="sticky-header">
+    <header class="header-container">
+      <nav class="nav-content content-container" aria-label="Primary navigation">
+        <div class="nav-left">
+          <a class="nav-link" href="index.html#catalog">Catalog</a>
+        </div>
+        <div class="nav-center">
+          <a href="index.html" class="nav-logo" aria-label="Home">MEDUSA STORE</a>
+        </div>
+        <div class="nav-right">
+          <span class="nav-link detail-current">About</span>
+        </div>
+      </nav>
+    </header>
+  </div>
+  <main class="about-page content-container">
+    <section class="about-introduction" aria-labelledby="about-title">
+      <p class="detail-eyebrow">About Medusa Store</p>
+      <h1 id="about-title" class="detail-title">A premium catalog that stays on your device.</h1>
+      <p class="detail-intro">Medusa Store is a university web development project demonstrating a polished product browsing experience using only semantic HTML, modern CSS, and vanilla JavaScript.</p>
+    </section>
+    <section class="about-feature-grid" aria-label="Store principles">
+      <article class="about-feature">
+        <h2>Fully offline</h2>
+        <p>All product data and illustrations are packaged locally with no remote dependencies.</p>
+      </article>
+      <article class="about-feature">
+        <h2>Personal browsing</h2>
+        <p>Cart items, product ratings, and theme choice remain in local storage.</p>
+      </article>
+      <article class="about-feature">
+        <h2>Built accessibly</h2>
+        <p>Keyboard-friendly controls, clear focus states, responsive layouts, and considered contrast.</p>
+      </article>
+    </section>
+  </main>
+  <footer class="footer detail-footer">
+    <div class="content-container footer-bottom">
+      <span>&copy; 2026 Medusa Store. All rights reserved.</span>
+      <span>Powered by Vanilla JS</span>
+    </div>
+  </footer>
+</body>
+</html>

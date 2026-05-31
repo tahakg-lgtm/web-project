@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medusa Store</title>
+  <meta name="description" content="Explore all of our products.">
+  <link rel="stylesheet" href="css/style.css">
+      <link rel="icon" type="image/png" href="images/icons/icon.png">
+</head>
+<body class="bg-ui-bg-base text-ui-fg-base antialiased">
+  <!-- Navigation -->
+  <div class="sticky-header">
+    <header class="header-container">
+      <nav class="nav-content content-container">
+        <!-- Left: Menu (or Search for us) -->
+        <div class="nav-left">
+          <button id="mobile-menu-btn" class="nav-btn" aria-label="Menu" aria-expanded="false" aria-controls="header-menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-small"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <span class="hidden-small">Menu</span>
+          </button>
+          <div class="header-menu" id="header-menu" hidden>
+            <a class="nav-link header-menu-link" href="about.html">About</a>
+          </div>
+          <div class="search-bar-inline">
+             <input type="search" id="search-input" placeholder="Search products..." autocomplete="off">
+             <button id="clear-search" class="clear-btn" hidden>&times;</button>
+          </div>
+        </div>
+
+        <!-- Center: Logo -->
+        <div class="nav-center">
+          <a href="index.html" class="nav-logo" aria-label="Home">MEDUSA STORE</a>
+        </div>
+
+        <!-- Right: Actions -->
+        <div class="nav-right">
+          <button id="theme-toggle" class="nav-link hidden-small" aria-label="Toggle dark mode">
+            <span class="theme-text-light">Dark Mode</span>
+            <span class="theme-text-dark" style="display:none;">Light Mode</span>
+          </button>
+          <button id="cart-toggle" class="nav-link" aria-pressed="false">
+            Cart (<span id="cart-count">0</span>)
+          </button>
+        </div>
+      </nav>
+    </header>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="hero-content left-aligned">
+        <div class="hero-text-block">
+          <h1 class="hero-title">Ecommerce Starter Template</h1>
+          <h2 class="hero-subtitle">Powered by Medusa and Vanilla JS</h2>
+        </div>
+        <button class="btn btn-secondary" id="scroll-catalog">
+          Browse Catalog
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-small"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="images/hero/catalog-hero.png" alt="Catalog Hero" class="hero-image">
+      </div>
+    </div>
+
+    <!-- Store Section -->
+    <div class="content-container store-layout" id="catalog">
+      <!-- Refinement List (Sidebar) -->
+      <aside class="refinement-list">
+        <div class="filter-header">
+          <h3>Filters</h3>
+          <button id="reset-filters" class="text-btn">Reset</button>
+        </div>
+        
+        <div class="filter-group">
+          <label for="category-select" class="filter-label">Category</label>
+          <select id="category-select" class="filter-select">
+            <option value="all">All Categories</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <div class="flex-between">
+            <label for="price-range" class="filter-label">Max Price</label>
+            <span id="price-display" class="txt-small-plus text-ui-fg-subtle">$2,500</span>
+          </div>
+          <input type="range" id="price-range" min="50" max="2500" step="50" value="2500" class="range-slider">
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Minimum Rating</label>
+          <div class="rating-pills" id="rating-filters">
+            <button class="rating-pill active" data-rating="0">All</button>
+            <button class="rating-pill" data-rating="4">4.0+ ★</button>
+            <button class="rating-pill" data-rating="4.5">4.5+ ★</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label for="sort-select" class="filter-label">Sort by</label>
+          <select id="sort-select" class="filter-select">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+            <option value="alphabetical">A-Z</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- Products Area -->
+      <div class="products-area">
+        <div class="products-header">
+          <h1 class="store-title">All products</h1>
+          <span class="results-count" id="results-count">Loading...</span>
+        </div>
+        
+        <div class="active-filters" id="active-filters"></div>
+
+        <div class="cart-checkout" id="cart-checkout" hidden>
+          <span class="cart-total" id="cart-total"></span>
+          <button class="btn btn-primary" id="buy-cart-btn">Buy cart</button>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+          <!-- Skeletons -->
+          <div class="product-skeleton"></div>
+          <div class="product-skeleton"></div>
+          <div class="product-skeleton"></div>
+          <div class="product-skeleton"></div>
+        </div>
+        
+        <div class="pagination" id="pagination" hidden></div>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <p class="text-ui-fg-subtle">No products found matching your filters.</p>
+          <button class="btn btn-secondary mt-4" id="empty-clear-btn">Clear filters</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="content-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">MEDUSA STORE</a>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <span class="footer-col-title">Categories</span>
+            <ul class="footer-list">
+              <li><a href="#catalog" data-footer-category="Phones">Phones</a></li>
+              <li><a href="#catalog" data-footer-category="Laptops">Laptops</a></li>
+              <li><a href="#catalog" data-footer-category="Headphones">Headphones</a></li>
+              <li><a href="#catalog" data-footer-category="Accessories">Accessories</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Explore</span>
+            <ul class="footer-list">
+              <li><a href="#catalog" data-footer-top-rated>Top Rated</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Medusa</span>
+            <ul class="footer-list">
+              <li><a href="https://next.medusajs.com/dk" target="_blank" rel="noopener noreferrer">Original website</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Medusa Store. All rights reserved.</span>
+        <span>Powered by Vanilla JS</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Product Modal -->
+  <dialog id="product-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-layout">
+        <div class="modal-img-container bg-ui-bg-subtle">
+          <img id="modal-image" src="" alt="Product Image">
+        </div>
+        <div class="modal-info">
+          <h2 class="modal-title" id="modal-name"></h2>
+          <span class="modal-category text-ui-fg-subtle" id="modal-category"></span>
+          <p class="modal-desc" id="modal-description"></p>
+          
+          <div class="modal-price-row">
+            <span class="modal-price" id="modal-price"></span>
+            <span class="modal-rating" id="modal-rating-text"></span>
+          </div>
+          
+          <div class="modal-tags" id="modal-tags"></div>
+          
+          <div class="user-rating-section">
+            <span class="txt-small-plus text-ui-fg-subtle">Rate this product:</span>
+            <div class="star-rating" id="interactive-stars">
+              <button data-star="1">★</button>
+              <button data-star="2">★</button>
+              <button data-star="3">★</button>
+              <button data-star="4">★</button>
+              <button data-star="5">★</button>
+            </div>
+            <div id="rating-feedback" class="rating-feedback txt-small text-ui-fg-muted"></div>
+          </div>
+
+          <div class="modal-actions mt-4 flex gap-4">
+            <button class="btn btn-primary flex-1" id="modal-buy">Buy</button>
+            <button class="btn btn-secondary flex-1" id="modal-cart-btn">
+              <span id="modal-cart-text">Add to cart</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Toast -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
