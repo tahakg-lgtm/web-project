@@ -24,6 +24,22 @@
           <a href="index.html" class="nav-logo" aria-label="Home">MEDUSA STORE</a>
         </div>
         <div class="nav-right">
+          <button id="theme-toggle" class="nav-link" aria-label="Toggle dark mode">
+            <svg class="theme-icon-light icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-icon-dark icon-small" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
           <span class="nav-link detail-current">About</span>
         </div>
       </nav>
@@ -35,6 +51,11 @@
       <h1 id="about-title" class="detail-title">A premium catalog that stays on your device.</h1>
       <p class="detail-intro">Medusa Store is a university web development project demonstrating a polished product browsing experience using only semantic HTML, modern CSS, and vanilla JavaScript.</p>
     </section>
+    
+    <section class="about-hero-image" style="margin-bottom: 4rem; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); background-color: var(--ui-bg-subtle);">
+      <img src="images/hero/catalog-hero.png" alt="Medusa Store Demo" style="width: 100%; height: auto; display: block; object-fit: cover; max-height: 500px;">
+    </section>
+
     <section class="about-feature-grid" aria-label="Store principles">
       <article class="about-feature">
         <h2>Fully offline</h2>
@@ -49,6 +70,14 @@
         <p>Keyboard-friendly controls, clear focus states, responsive layouts, and considered contrast.</p>
       </article>
     </section>
+
+    <section class="about-iframe-section" style="margin-top: 5rem;">
+      <h2 class="detail-title" style="font-size: 1.875rem; margin-bottom: 1rem;">Experience the Original</h2>
+      <p class="detail-intro" style="margin-bottom: 2rem;">Explore the original Medusa Store implementation directly from this page, without opening a new tab.</p>
+      <div style="border: 1px solid var(--ui-border-base); border-radius: 12px; overflow: hidden; height: 800px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); background-color: #ffffff;">
+        <iframe src="https://next.medusajs.com/dk" width="100%" height="100%" style="border: none; background-color: #ffffff;" title="Original Medusa Website"></iframe>
+      </div>
+    </section>
   </main>
   <footer class="footer detail-footer">
     <div class="content-container footer-bottom">
@@ -56,5 +85,9 @@
       <span>Powered by Vanilla JS</span>
     </div>
   </footer>
+  <script type="module">
+    import { initTheme } from './js/ui.js';
+    initTheme();
+  </script>
 </body>
 </html>
